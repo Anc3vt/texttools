@@ -64,7 +64,7 @@ public class TexttoolLicense {
 
     private static class ArgsInput {
 
-        @ArgsParameter(names = "header", required = true)
+        @ArgsParameter(names = { "--header", "-h" }, required = true)
         private String headerPath;
 
         public String getHeaderPath() {
