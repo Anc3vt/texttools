@@ -21,7 +21,7 @@ public class TexttoolLicense {
         String licenseHeaderText = Files.readString(Path.of(headerPath));
 
         Files.walk(Path.of("./"))
-                .filter(path -> path.endsWith(".java"))
+                .filter(path -> path.toString().endsWith(".java"))
                 .toList()
                 .forEach(path -> {
 
