@@ -24,10 +24,13 @@ public class TexttoolLicense {
                 .filter(path -> path.endsWith(".java"))
                 .toList()
                 .forEach(path -> {
+
+                    System.out.println("\n\n---------------- " + path + "-------------------");
+
                     try {
                         String string = Files.readString(path);
 
-                        if (string.startsWith("/**")) {
+                        if (string.contains("Copyright (C)")) {
                             removeOldLicense(string, path);
                         }
 
@@ -47,13 +50,13 @@ public class TexttoolLicense {
     private static void removeOldLicense(String string, Path path) throws IOException {
         StringBuilder stringBuilder = new StringBuilder();
 
-        boolean doNotAdd = true;
+        boolean add = false;
 
         for (String line : string.lines().toList()) {
             String lineTrim = line.trim();
-            if (!lineTrim.startsWith("/**") && !lineTrim.startsWith("*")) doNotAdd = false;
+            if (lineTrim.startsWith("package")) add = true;
 
-            if (!doNotAdd) {
+            if (add) {
                 stringBuilder.append(line).append(System.lineSeparator());
             }
         }
