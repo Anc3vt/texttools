@@ -66,6 +66,8 @@ public class TexttoolLicense {
         }
 
         Files.writeString(path, stringBuilder.toString(), StandardCharsets.UTF_8, WRITE, TRUNCATE_EXISTING);
+
+        return stringBuilder.toString();
     }
 
 
