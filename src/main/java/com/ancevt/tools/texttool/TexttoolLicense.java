@@ -61,8 +61,6 @@ public class TexttoolLicense {
             }
 
             System.out.println((add ? "+" : "-") + lineTrim);
-
-            return stringBuilder.toString();
         }
 
         Files.writeString(path, stringBuilder.toString(), StandardCharsets.UTF_8, WRITE, TRUNCATE_EXISTING);
