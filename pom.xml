@@ -8,7 +8,7 @@
     <artifactId>texttool</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
-    <name>texttools</name>
+    <name>Text Tools</name>
     <url>https://githib.com/Anc3vt/texttools</url>
 
     <licenses>
@@ -29,9 +29,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>17</java.version>
-
         <maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
-
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
@@ -71,7 +69,11 @@
     </repositories>
 
     <dependencies>
-
+        <dependency>
+            <groupId>com.ancevt.util</groupId>
+            <artifactId>args</artifactId>
+            <version>2.1.0</version>
+        </dependency>
     </dependencies>
 
     <build>
