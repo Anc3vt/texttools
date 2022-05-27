@@ -31,7 +31,7 @@ public class TexttoolLicense {
                         String string = Files.readString(path);
 
                         if (string.contains("Copyright (C)")) {
-                            removeOldLicense(string, path);
+                            string = removeOldLicense(string, path);
                         }
 
                         addLicenseHeader(string, path, licenseHeaderText);
@@ -47,7 +47,7 @@ public class TexttoolLicense {
         Files.writeString(path, resultText, StandardCharsets.UTF_8, WRITE, TRUNCATE_EXISTING);
     }
 
-    private static void removeOldLicense(String string, Path path) throws IOException {
+    private static String removeOldLicense(String string, Path path) throws IOException {
         StringBuilder stringBuilder = new StringBuilder();
 
         boolean add = false;
@@ -59,6 +59,10 @@ public class TexttoolLicense {
             if (add) {
                 stringBuilder.append(line).append(System.lineSeparator());
             }
+
+            System.out.println((add ? "+" : "-") + lineTrim);
+
+            return stringBuilder.toString();
         }
 
         Files.writeString(path, stringBuilder.toString(), StandardCharsets.UTF_8, WRITE, TRUNCATE_EXISTING);
